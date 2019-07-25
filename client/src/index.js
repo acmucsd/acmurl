@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Router from './routes/Router';
 
 ReactDOM.render(
-    <h1> Hello World </h1>,
+    <Router />,
     document.getElementById('root')
 );
