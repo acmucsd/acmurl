@@ -6,6 +6,8 @@ module.exports = {
   },
   'extends': [
     'google',
+    "eslint:recommended",
+    "plugin:react/recommended",
   ],
   'globals': {
     'Atomics': 'readonly',
@@ -17,6 +19,11 @@ module.exports = {
     },
     'ecmaVersion': 2018,
     'sourceType': 'module',
+  },
+  "settings": {
+    "react": {
+      "version": "latest",
+    },
   },
   'plugins': [
     'react',
