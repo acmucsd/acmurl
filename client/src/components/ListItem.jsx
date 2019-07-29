@@ -12,16 +12,34 @@ const ListItem = styled.div`
 
   h1 {
     font-family: 'Nunito', sans-serif;
-    font-size: 2.5em;
+    font-size: calc(2.3em + .5vw);
     margin: 0;
     padding: 5px 10px;
   }
 
   p {
     font-family: 'Roboto', sans-serif;
-    font-size: 1em;
+    font-size: calc(.7em + .5vw);
     margin: 0;
     padding: 5px 10px;
+  }
+
+  .lg-view {
+    display: inline-block;
+  }
+
+  .sm-view {
+    display: none;
+  } 
+
+  @media screen and (max-width: 500px) {
+    .lg-view {
+      display: none;
+    }
+
+    .sm-view {
+      display: inline-block;
+    } 
   }
 `;
 
