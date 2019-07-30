@@ -33,5 +33,9 @@
       "./node_modules/.bin/eslint --fix",
       "git add"
     ]
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.6.7"
   }
 }
