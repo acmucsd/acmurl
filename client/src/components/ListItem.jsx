@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const ListItem = styled.div`
   background-color: #22ACEA;
@@ -14,6 +15,7 @@ const ListItem = styled.div`
   h1 {
     font-family: 'Nunito', sans-serif;
     font-size: calc(2.3em + .5vw);
+    font-weight: bold;
     margin: 0;
     padding: 5px 10px;
   }
@@ -21,7 +23,6 @@ const ListItem = styled.div`
   p {
     font-family: 'Roboto', sans-serif;
     font-size: calc(.7em + .5vw);
-    /*******font-size: calc(0.25rem + 1.25vw);*******/
     margin: 0;
     padding: 5px 10px;
   }
@@ -43,13 +44,28 @@ const ListItem = styled.div`
       display: inline-block;
     } 
   }
-`
+`;
 
-export default (props) => (
-  <ListItem>
-    <h1 className="lg-view">acmurl.com/{props.shortURL}</h1>
-    <h1 className="sm-view">/{props.shortURL}</h1>
-    <p>{props.originalURL}</p>
-    <p>{props.description}</p>
+const ListItemComponent = ({
+  shortURL,
+  longURL,
+  description,
+  ...props
+}) => {
+  return (
+    <ListItem>
+      <h1 className="lg-view">acmurl.com/{shortURL}</h1>
+      <h1 className="sm-view">/{shortURL}</h1>
+      <p>{longURL}</p>
+      <p>{description}</p>
   </ListItem>
-);
+  )
+}
+
+ListItemComponent.propTypes = {
+  shortURL: PropTypes.string,
+  longURL: PropTypes.string,
+  descrption: PropTypes.string
+}
+
+export default ListItemComponent;
