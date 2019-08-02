@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 
 const ListItem = styled.div`
@@ -20,6 +21,7 @@ const ListItem = styled.div`
   p {
     font-family: 'Roboto', sans-serif;
     font-size: calc(.7em + .5vw);
+    /*******font-size: calc(0.25rem + 1.25vw);*******/
     margin: 0;
     padding: 5px 10px;
   }
@@ -41,6 +43,13 @@ const ListItem = styled.div`
       display: inline-block;
     } 
   }
-`;
+`
 
-export default ListItem;
+export default (props) => (
+  <ListItem>
+    <h1 className="lg-view">acmurl.com/{props.shortURL}</h1>
+    <h1 className="sm-view">/{props.shortURL}</h1>
+    <p>{props.originalURL}</p>
+    <p>{props.description}</p>
+  </ListItem>
+);
