@@ -11,7 +11,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const express = require('express');
 const http = require('http');
-const api = require('../routes/api');
+const api = require('./routes/api');
 
 // Constants
 const PORT = process.env.PORT || 3000;
