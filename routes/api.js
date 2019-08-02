@@ -22,4 +22,11 @@ router.get('/get-all-urls', function(req, res, next) {
   });
 });
 
+// Get a list of stored urls from db without internal tag.
+router.get('/:name', function(req, res, next) {
+  StoredUrl.find({shorturl: req.shorturl}, {longurl: 1}).then(function(url) {
+    res.send(url);
+  });
+});
+
 module.exports = router;
