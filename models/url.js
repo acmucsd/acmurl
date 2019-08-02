@@ -26,6 +26,7 @@ const UrlSchema = new Schema({
 
   internal: {
     type: Boolean,
+
   },
 });
 
