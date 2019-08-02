@@ -25,7 +25,7 @@ const server = http.createServer(app);
 app.use(bodyParser.json());
 
 // Now uses route specified in api.js.
-app.use('/api', api);
+app.use('/', api);
 
 app.use(cors({
   credentials: true,

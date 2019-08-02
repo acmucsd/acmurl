@@ -15,4 +15,11 @@ router.post('/add-url', function(req, res, next) {
   });
 });
 
+// Get a list of stored urls from db without internal tag.
+router.get('/get-all-urls', function(req, res, next) {
+  StoredUrl.find({internal: {$exists: false}}).then(function(url) {
+    res.send(url);
+  });
+});
 
+module.exports = router;
