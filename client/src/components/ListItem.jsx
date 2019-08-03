@@ -35,7 +35,7 @@ const ListItem = styled.div`
     display: none;
   } 
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 700px) {
     .lg-view {
       display: none;
     }
@@ -54,18 +54,20 @@ const ListItemComponent = ({
 }) => {
   return (
     <ListItem>
-      <h1 className="lg-view">acmurl.com/{shortURL}</h1>
-      <h1 className="sm-view">/{shortURL}</h1>
-      <p>{longURL}</p>
-      <p>{description}</p>
-  </ListItem>
+      <a href={longURL}>
+        <h1 className="lg-view">acmurl.com/{shortURL}</h1>
+        <h1 className="sm-view">/{shortURL}</h1>
+        <p>{longURL}</p>
+        <p>{description}</p>
+      </a>
+    </ListItem>
   )
 }
 
 ListItemComponent.propTypes = {
   shortURL: PropTypes.string,
   longURL: PropTypes.string,
-  descrption: PropTypes.string
+  description: PropTypes.string
 }
 
 export default ListItemComponent;
