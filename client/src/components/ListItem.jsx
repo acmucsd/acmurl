@@ -54,10 +54,12 @@ const ListItemComponent = ({
 }) => {
   return (
     <ListItem>
-      <h1 className="lg-view">acmurl.com/{shortURL}</h1>
-      <h1 className="sm-view">/{shortURL}</h1>
-      <p>{longURL}</p>
-      <p>{description}</p>
+      <a href={longURL}>
+        <h1 className="lg-view">acmurl.com/{shortURL}</h1>
+        <h1 className="sm-view">/{shortURL}</h1>
+        <p>{longURL}</p>
+        <p>{description}</p>
+      </a>
     </ListItem>
   )
 }
