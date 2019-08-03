@@ -23,7 +23,7 @@ router.get('/get-all-urls', function(req, res, next) {
 });
 
 // Redirect user to a long url given a short url from the database.
-router.get('/:id', function(req, res, next) {
+router.get('/:shorturl', function(req, res, next) {
   StoredUrl.findOne({shorturl: req.params.id}, {_id: 0, longurl: 1} )
       .then(function(url) {
         res.redirect(url.longurl);
