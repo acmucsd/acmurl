@@ -14,7 +14,6 @@ const Input = styled.input`
 
 const InputComponent = ({
   name,
-  type,
   value,
   handleChange,
   placeHolder,
@@ -24,12 +23,19 @@ const InputComponent = ({
     <Input
       id={props.name}
       name={props.name}
-      type={props.type}
+      type="text"
       value={props.value}
       onChange={props.handleChange}
       placeholder={props.placeholder}
     />
   )
+}
+
+ButtonComponent.propTypes = {
+  name: PropTypes.string,
+  value: PropTypes.string,
+  handleChange: PropTypes.func,
+  placeHolder: PropTypes.string
 }
 
 export default InputComponent;
