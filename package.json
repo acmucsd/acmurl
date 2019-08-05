@@ -17,10 +17,8 @@
   },
   "homepage": "https://github.com/eminguyen/acmurl#readme",
   "devDependencies": {
-    "eslint": "^4.19.1",
+    "eslint": "^6.1.0",
     "eslint-config-google": "^0.13.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
     "husky": "^3.0.1",
     "lint-staged": "^9.2.0"
@@ -35,8 +33,5 @@
       "./node_modules/.bin/eslint --fix",
       "git add"
     ]
-  },
-  "dependencies": {
-    "eslint-config-airbnb": "^17.1.1"
   }
 }
