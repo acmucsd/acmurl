@@ -19,7 +19,7 @@ const ListContainer = ({
     props.getUrls();
   });
 
-  if(!urls) return <ListItem></ListItem>
+  if (!urls) return <ListItem></ListItem>
   const items = urls.map((url) => {
     return (
       <ListItem

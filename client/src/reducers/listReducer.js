@@ -5,10 +5,10 @@ const initialState = {
 };
 
 /**
- * Reducer for list.
- * @param {*} state
- * @param {*} action
- * @return {*}
+ * Assigns urls that will be displayed on the home page.
+ * @param {object} state - The previous state of the list of urls
+ * @param {object} action - The action to perform
+ * @return {object} The updated state of the list of urls
  */
 export default function(state = initialState, action) {
   switch (action.type) {
