@@ -31,7 +31,7 @@ const InputComponent = ({
   )
 }
 
-ButtonComponent.propTypes = {
+InputComponent.propTypes = {
   name: PropTypes.string,
   value: PropTypes.string,
   handleChange: PropTypes.func,
