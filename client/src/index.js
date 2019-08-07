@@ -6,8 +6,9 @@ import ReactGA from 'react-ga';
 import Router from './routes/Router';
 import store from './store';
 
-global.config = require('../../config.json');
-ReactGA.initialize(global.config.googleAnalytics);
+const config = require('../../config.json');
+
+ReactGA.initialize(config.googleAnalytics || process.env.GA);
 ReactGA.pageview('/');
 
 ReactDOM.render(
