@@ -20,17 +20,17 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 const server = http.createServer(app);
 
+// Configure API security.
+app.use(cors({
+  credentials: true,
+  origin: true,
+}));
 
 // For parsing json data.
 app.use(bodyParser.json());
 
 // Now uses route specified in api.js.
 app.use('/', api);
-
-app.use(cors({
-  credentials: true,
-  origin: true,
-}));
 
 // Error handling middleware.
 app.use(function(err, req, res, next) {
