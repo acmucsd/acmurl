@@ -30,4 +30,12 @@ router.get('/:shorturl', function(req, res, next) {
       });
 });
 
+// Delete an existing url object from the database given a short url.
+router.delete('/:shorturl', function(req, res, next) {
+  StoredUrl.remove({shorturl: req.params.id})
+      .then(function(url) {
+        res.send(url);
+      });
+});
+
 module.exports = router;
