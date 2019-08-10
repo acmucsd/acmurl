@@ -1,8 +1,13 @@
+import { GlobalStyle } from '../global-styles';
 import React from 'react';
+import Title from '../components/Title';
 
 const RedirectPage = (props) =>  {
   return (
-    <h1> This is the Redirect Page. </h1>
+    <div>
+      <GlobalStyle/>
+      <Title text="Redirecting..."/>
+    </div>
   );
 }
 
