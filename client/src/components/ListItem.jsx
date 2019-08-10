@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { getDisplayUrl } from '../actions/listActions';
+
 
 const ListItem = styled.div`
   background-color: #22ACEA;
@@ -52,19 +54,6 @@ const ListItemComponent = ({
   description,
   ...props
 }) => {
-  function removePrefix(url, prefix) {
-    if (!url) return "";
-    if (!prefix) return url;
-    const hasPrefix = url.indexOf(prefix) === 0;
-    return hasPrefix ? url.substr(prefix.length) : url.toString();
-  };
-  
-  function getDisplayUrl(url) {
-    url = removePrefix(url, 'https://');
-    url = removePrefix(url, 'http://');
-    url = removePrefix(url, 'www.');
-    return url;
-  }
 
   return (
     <ListItem>
