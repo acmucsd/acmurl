@@ -52,12 +52,26 @@ const ListItemComponent = ({
   description,
   ...props
 }) => {
+  function removePrefix(url, prefix) {
+    if (!url) return "";
+    if (!prefix) return url;
+    const hasPrefix = url.indexOf(prefix) === 0;
+    return hasPrefix ? url.substr(prefix.length) : url.toString();
+  };
+  
+  function getDisplayUrl(url) {
+    url = removePrefix(url, 'https://');
+    url = removePrefix(url, 'http://');
+    url = removePrefix(url, 'www.');
+    return url;
+  }
+
   return (
     <ListItem>
       <a href={longURL}>
         <h1 className="lg-view">acmurl.com/{shortURL}</h1>
         <h1 className="sm-view">/{shortURL}</h1>
-        <p>{longURL}</p>
+        <p>{getDisplayUrl(longURL)}</p>
         <p>{description}</p>
       </a>
     </ListItem>
