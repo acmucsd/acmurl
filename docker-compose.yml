@@ -1,0 +1,9 @@
+version: "2"
+services:
+  db:
+    container_name: mongo
+    image: mongo # use mongo image (pull if needed)
+    volumes:
+      - ./data:/data/db # mount host ./data to container directory /data/db 
+    ports:
+      - "27017:27017" # map host port 27017 to container port 27017
