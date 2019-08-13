@@ -32,5 +32,6 @@
   ],
   "rules": {
     "react/jsx-uses-react": 1,
+    "linebreak-style": 0
   },
-} 
+}
