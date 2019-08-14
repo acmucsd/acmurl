@@ -9,9 +9,8 @@ const StoredUrl = require('../models/url');
 router.post('/add-url', (req, res) => {
   StoredUrl.create(req.body).then((url) => {
     res.send(url);
-    // eslint-disable-next-line no-undef
-  }).catch((err) => {
-    console.log(err);
+  }).catch(() => {
+    res.status(500).send('Error: short url required for storing');
   });
 });
 
@@ -24,17 +23,21 @@ router.get('/get-all-urls', (req, res) => {
 
 // Redirect user to a long url given a short url from the database.
 router.get('/:shorturl', (req, res) => {
-  StoredUrl.findOne({ shorturl: req.params.id }, { _id: 0, longurl: 1 })
+  StoredUrl.findOne({ shorturl: req.params.shorturl }, { _id: 0, longurl: 1 })
     .then((url) => {
       res.redirect(url.longurl);
+    }).catch(() => {
+      res.status(500).send('Error: short url does not exist in the database');
     });
 });
 
 // Delete an existing url object from the database given a short url.
 router.delete('/:shorturl', (req, res) => {
-  StoredUrl.remove({ shorturl: req.params.id })
+  StoredUrl.deleteOne({ shorturl: req.params.shorturl })
     .then((url) => {
       res.send(url);
+    }).catch(() => {
+      res.status(500).send('Error: short url does not exist in the database');
     });
 });
 
@@ -45,7 +48,11 @@ router.put('/:shorturl', (req, res) => {
       shorturl: req.body.shorturl,
     },
   }, { new: true })
-    .then(url => res.send(url.shorturl));
+    .then((url) => {
+      res.send(url.shorturl);
+    }).catch(() => {
+      res.status(500).send('Error: short url does not exist in the database');
+    });
 });
 
 module.exports = router;
