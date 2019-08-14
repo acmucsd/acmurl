@@ -9,7 +9,6 @@ const StoredUrl = require('../models/url');
 router.post('/add-url', (req, res) => {
   StoredUrl.create(req.body).then((url) => {
     res.send(url);
-    // eslint-disable-next-line no-undef
   }).catch(() => {
     res.status(500).send('Error: short url required for storing');
   });
@@ -27,7 +26,6 @@ router.get('/:shorturl', (req, res) => {
   StoredUrl.findOne({ shorturl: req.params.shorturl }, { _id: 0, longurl: 1 })
     .then((url) => {
       res.redirect(url.longurl);
-      // eslint-disable-next-line no-undef
     }).catch(() => {
       res.status(500).send('Error: short url does not exist in the database');
     });
@@ -38,7 +36,6 @@ router.delete('/:shorturl', (req, res) => {
   StoredUrl.deleteOne({ shorturl: req.params.shorturl })
     .then((url) => {
       res.send(url);
-      // eslint-disable-next-line no-undef
     }).catch(() => {
       res.status(500).send('Error: short url does not exist in the database');
     });
@@ -53,7 +50,6 @@ router.put('/:shorturl', (req, res) => {
   }, { new: true })
     .then((url) => {
       res.send(url.shorturl);
-      // eslint-disable-next-line no-undef
     }).catch(() => {
       res.status(500).send('Error: short url does not exist in the database');
     });
