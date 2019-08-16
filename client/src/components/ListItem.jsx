@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { getDisplayUrl } from '../actions/listActions';
+
 
 const ListItem = styled.div`
   background-color: #22ACEA;
@@ -52,12 +54,13 @@ const ListItemComponent = ({
   description,
   ...props
 }) => {
+
   return (
     <ListItem>
       <a href={longURL}>
         <h1 className="lg-view">acmurl.com/{shortURL}</h1>
         <h1 className="sm-view">/{shortURL}</h1>
-        <p>{longURL}</p>
+        <p>{getDisplayUrl(longURL)}</p>
         <p>{description}</p>
       </a>
     </ListItem>
