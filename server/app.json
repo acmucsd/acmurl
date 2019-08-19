@@ -1,0 +1,8 @@
+{
+    "name": "Acm Url shortener",
+    "description": "Url shortener that can store urls for our events/workshops",
+    "repository": "https://github.com/eminguyen/acmurl",
+    "keywords": ["node", "express", "static"],
+    "image": "heroku/nodejs"
+
+}
