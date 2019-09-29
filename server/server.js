@@ -12,6 +12,7 @@ const cors = require('cors');
 const express = require('express');
 const http = require('http');
 const api = require('./routes/api');
+const path = require("path");
 
 // Constants
 const PORT = process.env.PORT || 3000;
@@ -20,16 +21,29 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 const server = http.createServer(app);
 
+
 // Configure API security.
 app.use(cors({
   credentials: true,
   origin: true,
 }));
 
+
 // For parsing json data.
+
+// app.set('view engine', 'html');
+
+app.use(express.static("../client-cra/build"));
+
+// app.use(express.static(path.join(__dirname,'../client-cra/public')));
+
+// app.get('/ui', (req, res) => {
+//   // res.sendFile(path.join(__dirname, '../client-cra/public', 'index.html'));
+//   // res.render(__dirname + "./../client-cra/public/index.html");
+// })
+// Now uses route specified in api.js.
 app.use(bodyParser.json());
 
-// Now uses route specified in api.js.
 app.use('/', api);
 
 // Error handling middleware.

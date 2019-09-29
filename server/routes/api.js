@@ -1,12 +1,28 @@
 // Dependencies
 const express = require('express');
+const path = require('path');
 
 // eslint-disable-next-line new-cap
 const router = express.Router();
 const StoredUrl = require('../models/url');
 
+
+
+// app.use("/ui", express.static("../client-cra/build"))
+// render react frontend
+router.get('/', (req, res) => {
+  // res.redirect('/ui/');
+  res.sendFile(path.join(__dirname + '/../../client-cra/public', 'index.html'));
+  // res.render()
+})
+router.get('/form', (req, res) => {
+  res.redirect('/');
+})
+
+
 // Post request to add a url to the database.
 router.post('/add-url', (req, res) => {
+  console.log(req.body)
   StoredUrl.create(req.body).then((url) => {
     res.send(url);
   }).catch(() => {
