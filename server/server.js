@@ -11,6 +11,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const express = require('express');
 const http = require('http');
+const path = require('path');
 const api = require('./routes/api');
 
 // Constants
@@ -29,8 +30,15 @@ app.use(cors({
 // For parsing json data.
 app.use(bodyParser.json());
 
+// Render React Static App for Root
+app.use(express.static("../client/public"));
 // Now uses route specified in api.js.
 app.use('/', api);
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname + "../client/public", "index.html"));
+})
+
+
 
 // Error handling middleware.
 app.use(function(err, req, res, next) {
