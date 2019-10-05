@@ -38,8 +38,6 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname + "../client/public", "index.html"));
 })
 
-
-
 // Error handling middleware.
 app.use(function(err, req, res, next) {
   console.error(err);

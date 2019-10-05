@@ -17,7 +17,7 @@ const ListContainer = ({
 }) => {
   useEffect(() => {
     props.getUrls();
-  });
+  }, []);
 
   if (!urls) return <ListItem></ListItem>
   const items = urls.map((url) => {
