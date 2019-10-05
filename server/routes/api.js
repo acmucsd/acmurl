@@ -7,16 +7,20 @@ const StoredUrl = require('../models/url');
 
 // Post request to add a url to the database.
 router.post('/add-url', (req, res) => {
-  StoredUrl.create(req.body).then((url) => {
-    res.send(url);
-  }).catch(() => {
-    res.status(500).send('Error: short url required for storing');
-  });
+  // check password
+  if (req.body.password == process.env.TEMP_ADMIN_PASSWORD) {
+    // check if url exists
+    StoredUrl.create(req.body).then((url) => {
+      res.send(url);
+    }).catch(() => {
+      res.status(500).send('Error: short url required for storing');
+    });
+  }
 });
 
 // Get a list of stored urls from db without internal tag.
 router.get('/get-all-urls', (req, res) => {
-  StoredUrl.find({ internal: { $exists: false } }).then((url) => {
+  StoredUrl.find({ internal: false }).then((url) => {
     res.send(url);
   });
 });
