@@ -1,8 +1,13 @@
 import React from 'react';
+import { GlobalStyle } from '../global-styles';
+import CreateUrlForm from "../containers/CreateUrlForm";
 
 const FormPage = (props) =>  {
   return (
-    <h1> This is the Form Page. </h1>
+    <div>
+      <GlobalStyle/>
+      <CreateUrlForm/>
+    </div>
   );
 }
 
