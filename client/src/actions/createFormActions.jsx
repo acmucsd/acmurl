@@ -1,11 +1,13 @@
 import axios from "axios";
+import {message} from "antd";
 
 export const postEvent = (data) => (dispatch) => {
   axios.post("/add-url", data)
     .then(success => {
-      console.log("success!");
+      message.success("URL Added!", 4);
     })
     .catch(error => {
-      console.error("error");
+      message.error(`An Error Occurred.`, 4);
+      message.error(error, 4);
     });
 }
