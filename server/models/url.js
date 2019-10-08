@@ -4,9 +4,10 @@
 
 // Dependencies
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+
+const { Schema } = mongoose;
 // Connect to mongodb.
-const mongoUri = process.env.MONGO_URI ||'mongodb://localhost:27017/stored-urls-db';
+const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/stored-urls-db';
 mongoose.connect(mongoUri);
 // Url Schema that has attributes for our url object.
 const UrlSchema = new Schema({
