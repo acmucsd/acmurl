@@ -8,7 +8,7 @@ const StoredUrl = require('../models/url');
 // Post request to add a url to the database.
 router.post('/add-url', (req, res) => {
   // check password
-  if (req.body.password == process.env.TEMP_ADMIN_PASSWORD) {
+  if (req.body.password === process.env.TEMP_ADMIN_PASSWORD) {
     // check if url exists
     StoredUrl.create(req.body).then((url) => {
       res.send(url);
@@ -20,8 +20,14 @@ router.post('/add-url', (req, res) => {
 
 // Get a list of stored urls from db without internal tag.
 router.get('/get-all-urls', (req, res) => {
+  console.log('Got a request!');
+
   StoredUrl.find({ internal: false }).then((url) => {
     res.send(url);
+  }).catch((error) => {
+    res.status(404);
+    res.send(error);
+    console.error(error);
   });
 });
 
