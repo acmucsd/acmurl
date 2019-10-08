@@ -1,1 +1,1 @@
-web: yarn --cwd server ; yarn start
+web: yarn build ; yarn --cwd server ; yarn start
