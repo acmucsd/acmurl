@@ -2,9 +2,9 @@
  * @file Server that runs ACM url shortener
  * @author Antony Nguyen
  * @author Jaden Padua
+ * @author Ronak Shah
  */
 
-'use strict';
 
 // Dependencies
 const bodyParser = require('body-parser');
@@ -31,20 +31,20 @@ app.use(cors({
 app.use(bodyParser.json());
 
 // Render React Static App for Root
-app.use(express.static("../client/public"));
+app.use(express.static('../client/public'));
 // Now uses route specified in api.js.
 app.use('/', api);
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname + "../client/public", "index.html"));
-})
+  res.sendFile(path.join(`${__dirname}../client/public`, 'index.html'));
+});
 
 // Error handling middleware.
-app.use(function(err, req, res, next) {
+app.use((err, req, res) => {
   console.error(err);
-  res.status(422).send({error: err.message});
+  res.status(422).send({ error: err.message });
 });
 
 // Start up the server!
 server.listen(PORT, () => {
-  console.log(`Server started on port`, PORT);
+  console.log('Server started on port', PORT);
 });
