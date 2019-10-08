@@ -1,6 +1,6 @@
 // Dependencies
 const express = require('express');
-
+const path = require('path');
 // eslint-disable-next-line new-cap
 const router = express.Router();
 const StoredUrl = require('../models/url');
@@ -18,6 +18,9 @@ router.post('/add-url', (req, res) => {
   }
 });
 
+router.get('/form', (req, res) => {
+  res.sendFile(path.join(`${__dirname}/../../client/public`, 'index.html'));
+});
 // Get a list of stored urls from db without internal tag.
 router.get('/get-all-urls', (req, res) => {
   console.log('Got a request!');
